@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klinik Pergigian Old Town Dental &mdash; PJ Old Town</title>
+<meta name="description" content="Klinik Pergigian Old Town Dental — a neighbourhood general dental clinic in PJ Old Town, Petaling Jaya, offering examination, scaling, fillings, root canal treatment, extractions and dentures.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='94' fill='%23F6F1E7' stroke='%2314273D' stroke-width='10'/%3E%3Cpath d='M100,66 C100,50 76,42 66,58 C56,74 100,108 100,124 C100,108 144,74 134,58 C124,42 100,50 100,66 Z' fill='%231C8C82'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14273D;
+    --navy-soft: rgba(20,39,61,.08);
+    --teal:#1C8C82;
+    --teal-soft: rgba(28,140,130,.12);
+    --parchment:#F6F1E7;
+    --parchment-dim:#EFE7D8;
+    --brass:#C08A3E;
+    --brass-soft: rgba(192,138,62,.15);
+    --ink:#1B2430;
+    --soft-ink:#57626D;
+    --rule: rgba(20,39,61,.18);
+    --radius: 4px;
+    --wrap: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Playfair Display', Georgia, serif;
+    color:var(--navy);
+    margin:0;
+    line-height:1.18;
+    font-weight:600;
+  }
+
+  p{margin:0;}
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  button{font:inherit;}
+
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--teal);
+    outline-offset:2px;
+    border-radius:2px;
+  }
+
+  .wrap{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* ---------- Section label (flanking-rule device, from the clinic's own mark) ---------- */
+  .label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    color:var(--teal);
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.05em;
+    margin-bottom:14px;
+  }
+  .label::before, .label::after{
+    content:"";
+    height:1px;
+    width:34px;
+    background:var(--teal);
+    opacity:.55;
+  }
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 48px;
+  }
+  .section-head h2{font-size:clamp(1.6rem, 4vw, 2.2rem);}
+  .section-head .sub{color:var(--soft-ink); margin-top:12px; font-size:1.02rem;}
+
+  section{padding:64px 0;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    font-weight:600;
+    font-size:.96rem;
+    text-decoration:none;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn svg{width:18px; height:18px; flex:none;}
+  .btn-brass{
+    background:var(--brass);
+    color:var(--navy);
+    box-shadow:0 2px 0 rgba(20,39,61,.15);
+  }
+  .btn-brass:hover{transform:translateY(-1px); box-shadow:0 4px 10px rgba(192,138,62,.35);}
+  .btn-outline{
+    background:transparent;
+    border-color:var(--navy);
+    color:var(--navy);
+  }
+  .btn-outline:hover{background:var(--navy); color:var(--parchment);}
+  .btn-outline.on-navy{border-color:rgba(246,241,231,.5); color:var(--parchment);}
+  .btn-outline.on-navy:hover{background:var(--parchment); color:var(--navy);}
+  .btn-sm{padding:9px 15px; font-size:.85rem;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(246,241,231,.92);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    height:68px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+  }
+  .brand .badge{width:42px; height:42px; flex:none;}
+  .brand-name{
+    font-family:'Playfair Display', serif;
+    color:var(--navy);
+    font-weight:700;
+    font-size:1.05rem;
+    line-height:1.15;
+  }
+  .brand-name small{
+    display:block;
+    font-family:'Inter', sans-serif;
+    font-weight:500;
+    font-size:.66rem;
+    letter-spacing:.06em;
+    color:var(--teal);
+    margin-top:2px;
+  }
+
+  .nav-links{
+    display:none;
+    list-style:none;
+    margin:0; padding:0;
+    gap:28px;
+    align-items:center;
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:500;
+    font-size:.93rem;
+    position:relative;
+    padding:4px 0;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-3px;
+    height:2px; background:var(--teal);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .2s ease;
+  }
+  .nav-links a:hover::after{transform:scaleX(1);}
+
+  .nav-cta{display:flex; align-items:center; gap:8px;}
+  .nav-cta .btn span.full{display:none;}
+
+  .hamburger{
+    display:inline-flex;
+    align-items:center; justify-content:center;
+    width:40px; height:40px;
+    border:1.5px solid var(--navy);
+    border-radius:var(--radius);
+    background:transparent;
+    color:var(--navy);
+  }
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    gap:2px;
+    border-top:1px solid var(--rule);
+    background:var(--parchment);
+    padding:8px 0 16px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    text-decoration:none;
+    color:var(--ink);
+    font-weight:500;
+    padding:12px 4px;
+    border-bottom:1px solid var(--rule);
+  }
+
+  @media (min-width:900px){
+    .nav-links{display:flex;}
+    .hamburger{display:none;}
+    .nav-cta .btn span.full{display:inline;}
+    .nav-cta .btn span.short{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:56px 0 60px;
+    background:
+      radial-gradient(ellipse at 85% -10%, rgba(28,140,130,.10), transparent 55%),
+      var(--parchment);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:6px 13px 6px 10px;
+    border:1px solid var(--rule);
+    border-radius:999px;
+    font-size:.78rem;
+    font-weight:600;
+    color:var(--navy);
+    background:rgba(255,255,255,.5);
+    margin-bottom:22px;
+  }
+  .tag svg{width:14px; height:14px; color:var(--teal);}
+
+  .hero h1{
+    font-size:clamp(2rem, 6.4vw, 3.1rem);
+    letter-spacing:-0.01em;
+  }
+  .hero .sub{
+    margin-top:18px;
+    color:var(--soft-ink);
+    font-size:1.08rem;
+    max-width:46ch;
+  }
+  .hero-ctas{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:28px;
+  }
+  .hero-note{
+    margin-top:22px;
+    font-size:.82rem;
+    color:var(--soft-ink);
+  }
+  .hero-note strong{color:var(--navy);}
+
+  .hero-art{
+    width:100%;
+  }
+
+  @media (min-width:880px){
+    .hero-grid{grid-template-columns:1.05fr .95fr; gap:52px;}
+  }
+
+  /* ---------- Why us ---------- */
+  .why-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  @media (min-width:760px){
+    .why-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  .why-card{
+    background:#fff;
+    border:1px solid var(--rule);
+    border-top:3px solid var(--teal);
+    padding:28px 24px;
+  }
+  .why-card .icon{
+    width:44px; height:44px;
+    color:var(--teal);
+    margin-bottom:16px;
+  }
+  .why-card h3{font-size:1.15rem; margin-bottom:10px;}
+  .why-card p{color:var(--soft-ink); font-size:.95rem;}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--parchment-dim);}
+  .svc-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  @media (min-width:640px){ .svc-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (min-width:980px){ .svc-grid{grid-template-columns:repeat(3,1fr);} }
+  .svc-card{
+    display:flex;
+    gap:16px;
+    background:var(--parchment);
+    border:1px solid var(--rule);
+    padding:22px;
+  }
+  .svc-card .icon{
+    width:34px; height:34px;
+    flex:none;
+    color:var(--navy);
+    margin-top:2px;
+  }
+  .svc-card h3{font-size:1.02rem; font-family:'Inter',sans-serif; font-weight:700; margin-bottom:6px;}
+  .svc-card p{font-size:.88rem; color:var(--soft-ink);}
+
+  /* ---------- Dentist ---------- */
+  .dentist-card{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+    align-items:center;
+    background:#fff;
+    border:1px solid var(--rule);
+    padding:32px 24px;
+    max-width:760px;
+    margin:0 auto;
+  }
+  @media (min-width:680px){
+    .dentist-card{grid-template-columns:150px 1fr; text-align:left;}
+  }
+  .dentist-card{text-align:center;}
+  .dentist-avatar{
+    width:120px; height:120px;
+    margin:0 auto;
+    border-radius:50%;
+    background:var(--teal-soft);
+    border:2px dashed var(--teal);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--teal);
+  }
+  .dentist-avatar svg{width:56px; height:56px;}
+  .dentist-card h3{font-size:1.3rem;}
+  .placeholder-pill{
+    display:inline-block;
+    margin-top:6px;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--brass);
+    background:var(--brass-soft);
+    padding:3px 9px;
+    border-radius:999px;
+  }
+  .dentist-card .note{
+    margin-top:12px;
+    font-size:.9rem;
+    color:var(--soft-ink);
+  }
+
+  /* ---------- Reviews ---------- */
+  .reviews{background:var(--parchment-dim);}
+  .review-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  @media (min-width:760px){ .review-grid{grid-template-columns:repeat(3,1fr);} }
+  .review-card{
+    background:var(--parchment);
+    border:1px dashed var(--rule);
+    padding:24px;
+    position:relative;
+  }
+  .review-card .stars{color:var(--brass); letter-spacing:2px; font-size:.95rem; margin-bottom:12px;}
+  .review-card p{font-size:.92rem; color:var(--soft-ink); font-style:italic;}
+  .review-card .tag-placeholder{
+    display:inline-block;
+    margin-top:14px;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--navy);
+    background:var(--navy-soft);
+    padding:3px 8px;
+    border-radius:999px;
+  }
+  .reviews-note{
+    max-width:640px;
+    margin:36px auto 0;
+    text-align:center;
+    font-size:.88rem;
+    color:var(--soft-ink);
+    border-top:1px solid var(--rule);
+    padding-top:20px;
+  }
+
+  /* ---------- Location ---------- */
+  .loc-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  @media (min-width:880px){ .loc-grid{grid-template-columns:.85fr 1.15fr;} }
+  .loc-card{
+    background:#fff;
+    border:1px solid var(--rule);
+    padding:28px 24px;
+  }
+  .loc-row{
+    display:flex;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .loc-row:last-child{border-bottom:none;}
+  .loc-row .icon{width:22px; height:22px; flex:none; color:var(--teal); margin-top:2px;}
+  .loc-row h4{
+    margin:0 0 4px;
+    font-size:.82rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--navy);
+    font-weight:700;
+  }
+  .loc-row p{font-size:.94rem; color:var(--soft-ink);}
+  .loc-row .tbc{
+    color:var(--brass);
+    font-weight:600;
+    font-style:italic;
+  }
+  .map-frame{
+    width:100%;
+    height:100%;
+    min-height:320px;
+    border:1px solid var(--rule);
+    filter:grayscale(.15) contrast(1.02);
+  }
+
+  /* ---------- Closing CTA ---------- */
+  .cta-band{
+    background:var(--navy);
+  }
+  .cta-card{
+    background:linear-gradient(135deg, rgba(192,138,62,.16), rgba(192,138,62,.05));
+    border:1.5px solid var(--brass);
+    padding:44px 28px;
+    text-align:center;
+  }
+  .cta-card h2{color:var(--parchment); font-size:clamp(1.5rem,4vw,2rem);}
+  .cta-card p{color:rgba(246,241,231,.75); margin-top:12px; max-width:48ch; margin-left:auto; margin-right:auto;}
+  .cta-actions{
+    display:flex; flex-wrap:wrap; gap:12px;
+    justify-content:center;
+    margin-top:26px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--navy);
+    color:rgba(246,241,231,.82);
+    padding:48px 0 26px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  @media (min-width:760px){ .foot-grid{grid-template-columns:1.3fr 1fr 1fr;} }
+  .foot-brand{display:flex; gap:12px; align-items:flex-start;}
+  .foot-brand .badge{width:46px; flex:none;}
+  .foot-brand h3{color:var(--parchment); font-size:1.1rem;}
+  .foot-brand p{font-size:.85rem; color:rgba(246,241,231,.6); margin-top:6px; max-width:32ch;}
+  .foot-col h4{
+    font-size:.76rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--teal);
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  .foot-col p, .foot-col a{
+    display:block;
+    font-size:.88rem;
+    color:rgba(246,241,231,.75);
+    text-decoration:none;
+    margin-bottom:8px;
+  }
+  .foot-col a:hover{color:var(--parchment);}
+  .social-row{display:flex; gap:10px; margin-top:4px;}
+  .social-row a{
+    width:36px; height:36px;
+    border:1px solid rgba(246,241,231,.25);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:0;
+  }
+  .social-row a:hover{border-color:var(--teal); background:rgba(28,140,130,.15);}
+  .social-row svg{width:17px; height:17px;}
+
+  .foot-bottom{
+    border-top:1px solid rgba(246,241,231,.15);
+    margin-top:36px;
+    padding-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-size:.78rem;
+    color:rgba(246,241,231,.5);
+  }
+  .foot-disclaimer{
+    color:rgba(246,241,231,.42);
+    font-style:italic;
+  }
+
+  /* ---------- Sticky WhatsApp ---------- */
+  .sticky-wa{
+    position:fixed;
+    right:18px; bottom:18px;
+    z-index:200;
+    width:58px; height:58px;
+    border-radius:50%;
+    background:var(--brass);
+    color:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    text-decoration:none;
+    box-shadow:0 6px 18px rgba(20,39,61,.28);
+    transition:transform .15s ease;
+  }
+  .sticky-wa:hover{transform:scale(1.06);}
+  .sticky-wa svg{width:28px; height:28px;}
+
+  /* dev / build note banner */
+  .build-note{
+    background:var(--brass-soft);
+    border-bottom:1px solid var(--brass);
+    color:var(--navy);
+    text-align:center;
+    font-size:.78rem;
+    padding:8px 16px;
+  }
+</style>
+</head>
+<body>
+
+<!--
+  BUILD NOTES FOR THE CLINIC (remove this comment block before going live):
+  - Dentist name/credentials: not published on the sources reviewed (Facebook page, public web).
+    Section 6 is a clear placeholder — send the correct name, qualification and a photo to fill it in.
+  - Google reviews: not pulled from the Google Business Profile in this pass. Section 7 uses
+    clearly labelled placeholder cards. Replace with paraphrased excerpts of real reviews once
+    someone has reviewed the actual listing (do not invent quotes).
+  - Opening hours: not confirmed publicly, marked "To be confirmed" in Location. Please supply.
+  - "Neighbourhood pricing" in Why Us #3 is written as a general-practice positioning statement,
+    not a specific pricing claim, since no fee schedule was confirmed from clinic materials.
+  - Facebook like/check-in counts (4,148 likes / 165 check-ins) are quoted in the footer strip
+    as social proof; reconfirm before launch since these numbers drift over time.
+-->
+
+<div class="build-note">Prototype build — placeholders for dentist info, reviews and opening hours are marked below, pending confirmation from the clinic.</div>
+
+<!-- Shared SVG defs: the clinic's own badge mark, reused across header / hero / footer -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo-badge" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="93" fill="#F6F1E7" stroke="#14273D" stroke-width="9"/>
+      <!-- shophouse row, line illustration -->
+      <g fill="none" stroke="#14273D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+        <line x1="34" y1="160" x2="166" y2="160"/>
+        <rect x="40" y="132" width="26" height="28"/>
+        <line x1="40" y1="132" x2="53" y2="121" />
+        <line x1="66" y1="132" x2="53" y2="121" />
+        <rect x="69" y="126" width="28" height="34"/>
+        <line x1="69" y1="126" x2="97" y2="126"/>
+        <rect x="100" y="130" width="26" height="30"/>
+        <line x1="100" y1="130" x2="113" y2="120"/>
+        <line x1="126" y1="130" x2="113" y2="120"/>
+        <rect x="129" y="134" width="24" height="26"/>
+        <line x1="129" y1="134" x2="153" y2="134"/>
+        <!-- windows -->
+        <rect x="46" y="140" width="6" height="8"/>
+        <rect x="56" y="140" width="6" height="8"/>
+        <rect x="76" y="134" width="7" height="9"/>
+        <rect x="86" y="134" width="7" height="9"/>
+        <rect x="106" y="138" width="6" height="8"/>
+        <rect x="116" y="138" width="6" height="8"/>
+        <rect x="135" y="140" width="6" height="8"/>
+        <rect x="145" y="140" width="6" height="8"/>
+        <!-- tree -->
+        <line x1="150" y1="160" x2="150" y2="145"/>
+        <circle cx="150" cy="136" r="9"/>
+        <!-- street lamp -->
+        <line x1="44" y1="160" x2="44" y2="128"/>
+        <circle cx="44" cy="123" r="4.5"/>
+      </g>
+      <!-- teal heart-shaped tooth -->
+      <path d="M100,64 C100,48 76,40 66,56 C56,72 100,106 100,122 C100,106 144,72 134,56 C124,40 100,48 100,64 Z" fill="#1C8C82"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <nav class="wrap nav-row" aria-label="Primary">
+    <a class="brand" href="#top">
+      <svg class="badge" aria-hidden="true"><use href="#logo-badge"/></svg>
+      <span class="brand-name">Old Town Dental
+        <small>Klinik Pergigian &middot; PJ Old Town</small>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#dentist">Our Dentist</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn btn-outline btn-sm" href="tel:0377726611" aria-label="Call the clinic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        <span class="full">Call</span><span class="short">Call</span>
+      </a>
+      <a class="btn btn-brass btn-sm" target="_blank" rel="noopener" href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment" aria-label="Message on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm5.9 14.2c-.2.6-1.2 1.2-1.7 1.3-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg>
+        <span class="full">WhatsApp</span><span class="short">Chat</span>
+      </a>
+      <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap" style="display:flex; flex-direction:column;">
+      <a href="#why-us">Why Us</a>
+      <a href="#services">Services</a>
+      <a href="#dentist">Our Dentist</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#location">Location</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          PJ Old Town, Petaling Jaya
+        </span>
+        <h1>The Dental Clinic Old Town Knows By Name</h1>
+        <p class="sub">A general dental practice for the whole neighbourhood &mdash; thorough check-ups, everyday restorative work and root canal treatment, all under one roof at Jalan Othman.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-brass" target="_blank" rel="noopener" href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm5.9 14.2c-.2.6-1.2 1.2-1.7 1.3-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg>
+            Book on WhatsApp
+          </a>
+          <a class="btn btn-outline" href="tel:0377726611">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+            Call 03-7772 6611
+          </a>
+        </div>
+        <p class="hero-note"><strong>4,148</strong> Facebook likes &middot; <strong>165</strong> check-ins from the local community.</p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 480 320" width="100%">
+          <rect x="0" y="0" width="480" height="320" fill="none"/>
+          <!-- ground -->
+          <line x1="16" y1="262" x2="464" y2="262" stroke="#14273D" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- shophouse row -->
+          <g fill="none" stroke="#14273D" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+            <rect x="46" y="150" width="70" height="112"/>
+            <line x1="46" y1="150" x2="81" y2="118"/>
+            <line x1="116" y1="150" x2="81" y2="118"/>
+            <rect x="122" y="128" width="78" height="134"/>
+            <line x1="122" y1="128" x2="200" y2="128"/>
+            <rect x="206" y="140" width="70" height="122"/>
+            <line x1="206" y1="140" x2="241" y2="112"/>
+            <line x1="276" y1="140" x2="241" y2="112"/>
+            <rect x="282" y="132" width="78" height="130"/>
+            <line x1="282" y1="132" x2="360" y2="132"/>
+            <rect x="366" y="152" width="66" height="110"/>
+            <line x1="366" y1="152" x2="399" y2="122"/>
+            <line x1="432" y1="152" x2="399" y2="122"/>
+            <!-- doors -->
+            <rect x="70" y="216" width="22" height="46"/>
+            <rect x="150" y="206" width="24" height="56"/>
+            <rect x="228" y="212" width="22" height="50"/>
+            <rect x="308" y="208" width="24" height="54"/>
+            <rect x="388" y="218" width="22" height="44"/>
+            <!-- windows -->
+            <rect x="56" y="172" width="16" height="20"/>
+            <rect x="92" y="172" width="16" height="20"/>
+            <rect x="134" y="152" width="18" height="22"/>
+            <rect x="174" y="152" width="18" height="22"/>
+            <rect x="214" y="164" width="16" height="20"/>
+            <rect x="250" y="164" width="16" height="20"/>
+            <rect x="294" y="156" width="18" height="22"/>
+            <rect x="334" y="156" width="18" height="22"/>
+            <rect x="378" y="176" width="16" height="20"/>
+            <rect x="410" y="176" width="16" height="20"/>
+          </g>
+          <!-- street lamp -->
+          <g stroke="#14273D" stroke-width="2.5" stroke-linecap="round" fill="none">
+            <line x1="30" y1="262" x2="30" y2="176"/>
+            <path d="M30,176 q0,-14 14,-14"/>
+            <circle cx="46" cy="164" r="6" fill="#F6F1E7"/>
+          </g>
+          <!-- tree -->
+          <g stroke="#14273D" stroke-width="2.5" fill="none" stroke-linecap="round">
+            <line x1="452" y1="262" x2="452" y2="214"/>
+            <circle cx="452" cy="196" r="22" fill="#1C8C82" fill-opacity=".14"/>
+          </g>
+          <!-- hanging signboard with heart-tooth mark -->
+          <line x1="150" y1="128" x2="150" y2="104" stroke="#14273D" stroke-width="2.5"/>
+          <line x1="150" y1="106" x2="196" y2="106" stroke="#14273D" stroke-width="2.5"/>
+          <line x1="196" y1="106" x2="196" y2="120" stroke="#14273D" stroke-width="2.5"/>
+          <g transform="translate(174,78) scale(0.34)">
+            <circle cx="100" cy="100" r="93" fill="#F6F1E7" stroke="#14273D" stroke-width="9"/>
+            <path d="M100,64 C100,48 76,40 66,56 C56,72 100,106 100,122 C100,106 144,72 134,56 C124,40 100,48 100,64 Z" fill="#1C8C82"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY US ================= -->
+  <section id="why-us">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Why Old Town Dental</p>
+        <h2>A general practice, done properly</h2>
+        <p class="sub">Positioned as a one-stop clinic for curative and preventive dentistry &mdash; here's what that means for you.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+          <h3>One stop, curative and preventive</h3>
+          <p>From routine examinations and cleanings to fillings and extractions, the clinic covers general dental care under one roof, so you're not shuttled between specialists for everyday needs.</p>
+        </div>
+        <div class="why-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 4v5c0 5-3.4 8.4-7 9-3.6-.6-7-4-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          <h3>Root canal treatment on-site</h3>
+          <p>Root canal treatment is one of the clinic's core services &mdash; a damaged or infected tooth can often be treated and saved here, rather than referred elsewhere.</p>
+        </div>
+        <div class="why-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/></svg>
+          <h3>Built around the neighbourhood</h3>
+          <p>A fixture of PJ Old Town rather than a walk-in chain &mdash; the kind of clinic families return to for routine, ongoing dental care close to home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Services</p>
+        <h2>General dentistry, start to finish</h2>
+        <p class="sub">The core treatments offered at the clinic. Ask on WhatsApp if you're not sure which one you need.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <div><h3>Examination &amp; Consultation</h3><p>Routine check-ups and diagnosis to catch problems early and plan the right treatment.</p></div>
+        </div>
+        <div class="svc-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12c2-4 6-6 8-6s6 2 8 6c-2 4-6 6-8 6s-6-2-8-6z"/><circle cx="12" cy="12" r="2.4"/></svg>
+          <div><h3>Scaling &amp; Polishing</h3><p>Professional cleaning that removes plaque, tartar and surface stains between check-ups.</p></div>
+        </div>
+        <div class="svc-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 4v5c0 5-3.4 8.4-7 9-3.6-.6-7-4-7-9V7l7-4z"/></svg>
+          <div><h3>Fillings &amp; Restorations</h3><p>Repairing decayed or damaged teeth to restore shape, strength and everyday function.</p></div>
+        </div>
+        <div class="svc-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2c-3 0-5 2.5-5 6 0 3 1.5 4 1.5 7 0 2 1 4 1.5 5 .3.6 1 .8 1.4.2.4-.6 1-2.2 1.4-2.2.4 0 1 1.6 1.4 2.2.4.6 1.1.4 1.4-.2.5-1 1.5-3 1.5-5 0-3 1.5-4 1.5-7 0-3.5-2-6-5-6z"/></svg>
+          <div><h3>Root Canal Treatment</h3><p>Treating infected or badly damaged teeth from the inside, to save them from extraction.</p></div>
+        </div>
+        <div class="svc-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 4l12 16M18 4L6 20"/></svg>
+          <div><h3>Extractions</h3><p>Safe removal of teeth that can't be saved or are causing pain and complications.</p></div>
+        </div>
+        <div class="svc-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10c0-3 4-5 9-5s9 2 9 5-4 3-9 3-9 0-9-3z"/><path d="M3 10c0 3 4 8 9 8s9-5 9-8"/></svg>
+          <div><h3>Dentures</h3><p>Custom-fitted removable replacements for one or more missing teeth.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DENTIST ================= -->
+  <section id="dentist">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Our Dentist</p>
+        <h2>Meet the dentist</h2>
+      </div>
+      <div class="dentist-card">
+        <div class="dentist-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </div>
+        <div>
+          <h3>Name to be confirmed</h3>
+          <span class="placeholder-pill">Placeholder</span>
+          <p class="note">The name and credentials of the dentist currently practising at this clinic could not be confirmed from public sources. This section is left as a placeholder &mdash; please supply the correct details (name, qualifications, a short bio and photo) before this goes live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section id="reviews" class="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Reviews</p>
+        <h2>What patients say</h2>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Placeholder &mdash; a short, paraphrased excerpt from a real Google review will go here once the clinic's Google Business Profile has been reviewed directly."</p>
+          <span class="tag-placeholder">Sample layout only</span>
+        </div>
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Placeholder &mdash; do not treat this text as a real patient quote. Replace with genuine, paraphrased feedback and attribution rules the clinic is comfortable with."</p>
+          <span class="tag-placeholder">Sample layout only</span>
+        </div>
+        <div class="review-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Placeholder &mdash; card shown to demonstrate layout and spacing for three reviews across mobile and desktop."</p>
+          <span class="tag-placeholder">Sample layout only</span>
+        </div>
+      </div>
+      <p class="reviews-note">These three cards are structural placeholders, not real patient testimonials. Before launch, pull and paraphrase genuine excerpts from the clinic's Google Business Profile, with permission where required.</p>
+    </div>
+  </section>
+
+  <!-- ================= LOCATION ================= -->
+  <section id="location">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Location</p>
+        <h2>Find us in PJ Old Town</h2>
+      </div>
+      <div class="loc-grid">
+        <div class="loc-card">
+          <div class="loc-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            <div>
+              <h4>Address</h4>
+              <p>86A, Jalan Othman, PJ Old Town,<br>46000 Petaling Jaya, Selangor</p>
+            </div>
+          </div>
+          <div class="loc-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+            <div>
+              <h4>Landline</h4>
+              <p><a href="tel:0377726611">03-7772 6611</a></p>
+            </div>
+          </div>
+          <div class="loc-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            <div>
+              <h4>WhatsApp / Mobile</h4>
+              <p><a href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener">+60 12-735 2114</a></p>
+            </div>
+          </div>
+          <div class="loc-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <div>
+              <h4>Opening Hours</h4>
+              <p class="tbc">To be confirmed with the clinic.</p>
+            </div>
+          </div>
+          <div class="hero-ctas" style="margin-top:20px;">
+            <a class="btn btn-brass btn-sm" target="_blank" rel="noopener" href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment">WhatsApp Us</a>
+            <a class="btn btn-outline btn-sm" href="tel:0377726611">Call the Clinic</a>
+          </div>
+        </div>
+        <iframe class="map-frame" loading="lazy" title="Map to Klinik Pergigian Old Town Dental"
+          src="https://www.google.com/maps?q=86A,+Jalan+Othman,+PJ+Old+Town,+46000+Petaling+Jaya,+Selangor&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLOSING CTA ================= -->
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="cta-card">
+        <h2>Toothache, check-up, or just overdue for a visit?</h2>
+        <p>Send a WhatsApp message or call the clinic directly &mdash; someone from Old Town Dental will get back to you about an appointment.</p>
+        <div class="cta-actions">
+          <a class="btn btn-brass" target="_blank" rel="noopener" href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm5.9 14.2c-.2.6-1.2 1.2-1.7 1.3-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg>
+            WhatsApp Us
+          </a>
+          <a class="btn btn-outline on-navy" href="tel:0377726611">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+            Call 03-7772 6611
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <svg class="badge" aria-hidden="true"><use href="#logo-badge"/></svg>
+        <div>
+          <h3>Old Town Dental</h3>
+          <p>A neighbourhood general dental clinic in PJ Old Town, Petaling Jaya &mdash; curative and preventive care under one roof.</p>
+          <div class="social-row">
+            <a href="https://facebook.com/oldtowndentalclinic" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.6 1.6-1.6h1.7V3.2C16.5 3.1 15.4 3 14.2 3c-2.6 0-4.4 1.6-4.4 4.5v2.3H7v3.2h2.8v8h3.7z"/></svg>
+            </a>
+            <a href="https://instagram.com/oldtown.dental" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:0377726611">Landline: 03-7772 6611</a>
+        <a href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener">WhatsApp: +60 12-735 2114</a>
+      </div>
+
+      <div class="foot-col">
+        <h4>Address</h4>
+        <p>86A, Jalan Othman, PJ Old Town,<br>46000 Petaling Jaya, Selangor</p>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Klinik Pergigian Old Town Dental. All rights reserved.</span>
+      <span class="foot-disclaimer">Prototype design. Content and figures shown are for illustration and subject to confirmation.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="sticky-wa" target="_blank" rel="noopener" href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment" aria-label="Message Old Town Dental on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm5.9 14.2c-.2.6-1.2 1.2-1.7 1.3-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var toggle = document.getElementById('menuToggle');
+  var menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    });
+  });
+</script>
+
+</body>
+</html>
