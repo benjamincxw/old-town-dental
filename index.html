@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Klinik Pergigian Old Town Dental &mdash; PJ Old Town</title>
-<meta name="description" content="Klinik Pergigian Old Town Dental — a neighbourhood general dental clinic in PJ Old Town, Petaling Jaya, offering examination, scaling, fillings, root canal treatment, extractions and dentures.">
+<title>Klinik Pergigian Old Town Dental &mdash; PJ Old Town, Selangor, Malaysia</title>
+<meta name="description" content="Klinik Pergigian Old Town Dental — a neighbourhood general dental clinic in PJ Old Town, Petaling Jaya, Selangor, Malaysia, offering examination, scaling, fillings, root canal treatment, extractions and dentures.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='94' fill='%23F6F1E7' stroke='%2314273D' stroke-width='10'/%3E%3Cpath d='M100,66 C100,50 76,42 66,58 C56,74 100,108 100,124 C100,108 144,74 134,58 C124,42 100,50 100,66 Z' fill='%231C8C82'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -567,20 +567,36 @@
 
 <!--
   BUILD NOTES FOR THE CLINIC (remove this comment block before going live):
-  - Dentist name/credentials: not published on the sources reviewed (Facebook page, public web).
-    Section 6 is a clear placeholder — send the correct name, qualification and a photo to fill it in.
-  - Google reviews: not pulled from the Google Business Profile in this pass. Section 7 uses
-    clearly labelled placeholder cards. Replace with paraphrased excerpts of real reviews once
-    someone has reviewed the actual listing (do not invent quotes).
-  - Opening hours: confirmed with the clinic that it is open daily (no weekly off day); exact
-    opening/closing times still not confirmed, marked "To be confirmed" in Location. Please supply.
-  - "Neighbourhood pricing" in Why Us #3 is written as a general-practice positioning statement,
-    not a specific pricing claim, since no fee schedule was confirmed from clinic materials.
+  - Address corrected to Malaysia (PJ Old Town, Selangor) throughout — an earlier draft's map
+    embed briefly mismatched to an unrelated same-named "Old Town Dental" clinic in Phoenix, AZ,
+    USA, because the map query lacked the business name and country. Fixed by querying with the
+    full business name + "Malaysia" appended; verified the pin now lands on Jalan Othman, PJ.
+  - Address detail: clinic's own Facebook page lists "86A, Jalan Othman"; Google Business Profile
+    additionally lists "1st Floor". Shown here as "1st Floor, 86A, Jalan Othman" — please confirm
+    the unit lettering/floor is exactly right before launch.
+  - Opening hours pulled directly from the clinic's Facebook page (structured hours field,
+    last updated ~2 weeks before this build): Mon 10am-7pm, Tue-Fri 10am-9pm, Sat-Sun 10am-7pm,
+    open every day. Please reconfirm these are still current before launch.
+  - Dentist: the clinic's own Facebook posts and hashtags (historical and within the last year)
+    refer to "Dr Rathi" as the practising dentist, so the placeholder has been replaced with that
+    name. Full registered name, qualifications and a photo were not publicly available — please
+    supply them before launch, and confirm whether more than one dentist currently practises here.
+  - Reviews: real aggregate ratings were found (Google: 4.8/5 from 42 reviews; Facebook: 100%
+    recommend from 46 reviews) and are now shown as verified stats. The individual review cards
+    below remain clearly labelled placeholders — no review quotes were invented; pull and
+    paraphrase real excerpts from the Google Business Profile before launch.
+  - Founding date: Facebook lists August 28, 2018 as the page's founding date, used in the hero
+    as "neighbourhood fixture since 2018" — reconfirm this reflects the clinic's actual opening.
+  - Email otdentalclinic@gmail.com is listed on the clinic's Facebook contact info and has been
+    added to the footer; confirm it's still monitored before publishing it site-wide.
+  - "Neighbourhood pricing" tone in Why Us is a general-practice positioning statement, not a
+    specific pricing claim — Facebook's own price-range field marks the clinic "$$" (moderate),
+    which supports this framing without citing exact fees.
   - Facebook like/check-in counts (4,148 likes / 165 check-ins) are quoted in the footer strip
     as social proof; reconfirm before launch since these numbers drift over time.
 -->
 
-<div class="build-note">Prototype build — placeholders for dentist info, reviews and opening hours are marked below, pending confirmation from the clinic.</div>
+<div class="build-note">Prototype build — dentist name, hours and ratings below are sourced from the clinic's own Facebook page; please reconfirm before launch (see comments in the page source).</div>
 
 <!-- Shared SVG defs: the clinic's own badge mark, reused across header / hero / footer -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -681,7 +697,7 @@
           </span>
         </div>
         <h1>The Dental Clinic Old Town Knows By Name</h1>
-        <p class="sub">A general dental practice for the whole neighbourhood &mdash; thorough check-ups, everyday restorative work and root canal treatment, all under one roof at Jalan Othman.</p>
+        <p class="sub">A general dental practice for the whole neighbourhood since 2018 &mdash; thorough check-ups, everyday restorative work and root canal treatment, all under one roof at Jalan Othman.</p>
         <div class="hero-ctas">
           <a class="btn btn-brass" target="_blank" rel="noopener" href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm5.9 14.2c-.2.6-1.2 1.2-1.7 1.3-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.6-.1 1.2z"/></svg>
@@ -692,7 +708,7 @@
             Call 03-7772 6611
           </a>
         </div>
-        <p class="hero-note"><strong>4,148</strong> Facebook likes &middot; <strong>165</strong> check-ins from the local community.</p>
+        <p class="hero-note"><strong>4.8&#9733;</strong> from 42 Google reviews &middot; <strong>4,148</strong> Facebook likes &middot; <strong>165</strong> check-ins from the local community.</p>
       </div>
 
       <div class="hero-art" aria-hidden="true">
@@ -834,9 +850,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
         </div>
         <div>
-          <h3>Name to be confirmed</h3>
-          <span class="placeholder-pill">Placeholder</span>
-          <p class="note">The name and credentials of the dentist currently practising at this clinic could not be confirmed from public sources. This section is left as a placeholder &mdash; please supply the correct details (name, qualifications, a short bio and photo) before this goes live.</p>
+          <h3>Dr Rathi</h3>
+          <span class="placeholder-pill">Details to confirm</span>
+          <p class="note">Referenced in the clinic's own Facebook posts as the practising dentist. Full registered name, qualifications, a short bio and photo weren't publicly available &mdash; please supply these (and confirm if more than one dentist currently practises here) before this goes live.</p>
         </div>
       </div>
     </div>
@@ -848,6 +864,7 @@
       <div class="section-head">
         <p class="label">Reviews</p>
         <h2>What patients say</h2>
+        <p class="sub"><strong>4.8&#9733;</strong> from 42 Google reviews &middot; <strong>100%</strong> recommend on Facebook (46 reviews). Verified aggregate ratings as of this build &mdash; individual quotes below are placeholders.</p>
       </div>
       <div class="review-grid">
         <div class="review-card">
@@ -866,7 +883,7 @@
           <span class="tag-placeholder">Sample layout only</span>
         </div>
       </div>
-      <p class="reviews-note">These three cards are structural placeholders, not real patient testimonials. Before launch, pull and paraphrase genuine excerpts from the clinic's Google Business Profile, with permission where required.</p>
+      <p class="reviews-note">The 4.8&#9733; and 100% recommend figures above are real, pulled directly from the clinic's Google and Facebook pages. The three quote cards, however, are structural placeholders, not real patient testimonials &mdash; before launch, pull and paraphrase genuine excerpts from the Google Business Profile, with permission where required.</p>
     </div>
   </section>
 
@@ -883,7 +900,7 @@
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="10" r="2.4"/></svg>
             <div>
               <h4>Address</h4>
-              <p>86A, Jalan Othman, PJ Old Town,<br>46000 Petaling Jaya, Selangor</p>
+              <p>1st Floor, 86A, Jalan Othman, PJ Old Town,<br>46000 Petaling Jaya, Selangor, Malaysia</p>
             </div>
           </div>
           <div class="loc-row">
@@ -904,7 +921,20 @@
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
             <div>
               <h4>Opening Hours</h4>
-              <p><strong>Open daily</strong> &mdash; no weekly off day.<br><span class="tbc">Exact opening &amp; closing times to be confirmed with the clinic.</span></p>
+              <p>
+                Mon: 10am&ndash;7pm<br>
+                Tue&ndash;Fri: 10am&ndash;9pm<br>
+                Sat&ndash;Sun: 10am&ndash;7pm<br>
+                <strong>Open every day</strong> &mdash; no weekly closing day.
+              </p>
+              <p class="tbc" style="margin-top:6px; font-size:.82rem;">From the clinic's Facebook page; please reconfirm before relying on these hours.</p>
+            </div>
+          </div>
+          <div class="loc-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:otdentalclinic@gmail.com">otdentalclinic@gmail.com</a></p>
             </div>
           </div>
           <div class="hero-ctas" style="margin-top:20px;">
@@ -913,7 +943,7 @@
           </div>
         </div>
         <iframe class="map-frame" loading="lazy" title="Map to Klinik Pergigian Old Town Dental"
-          src="https://www.google.com/maps?q=86A,+Jalan+Othman,+PJ+Old+Town,+46000+Petaling+Jaya,+Selangor&output=embed">
+          src="https://www.google.com/maps?q=Klinik+Pergigian+Old+Town,+86A+Jalan+Othman,+PJ+Old+Town,+46000+Petaling+Jaya,+Selangor,+Malaysia&output=embed">
         </iframe>
       </div>
     </div>
@@ -948,7 +978,7 @@
         <svg class="badge" aria-hidden="true"><use href="#logo-badge"/></svg>
         <div>
           <h3>Old Town Dental</h3>
-          <p>A neighbourhood general dental clinic in PJ Old Town, Petaling Jaya &mdash; curative and preventive care under one roof.</p>
+          <p>Your neighbourhood dental care &mdash; a general dental practice determined to be a one-stop centre for all your dental needs.</p>
           <div class="social-row">
             <a href="https://facebook.com/oldtowndentalclinic" target="_blank" rel="noopener" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.6 1.6-1.6h1.7V3.2C16.5 3.1 15.4 3 14.2 3c-2.6 0-4.4 1.6-4.4 4.5v2.3H7v3.2h2.8v8h3.7z"/></svg>
@@ -964,11 +994,12 @@
         <h4>Contact</h4>
         <a href="tel:0377726611">Landline: 03-7772 6611</a>
         <a href="https://wa.me/60127352114?text=Hi%20Old%20Town%20Dental%2C%20I%20would%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener">WhatsApp: +60 12-735 2114</a>
+        <a href="mailto:otdentalclinic@gmail.com">otdentalclinic@gmail.com</a>
       </div>
 
       <div class="foot-col">
         <h4>Address</h4>
-        <p>86A, Jalan Othman, PJ Old Town,<br>46000 Petaling Jaya, Selangor</p>
+        <p>1st Floor, 86A, Jalan Othman, PJ Old Town,<br>46000 Petaling Jaya, Selangor, Malaysia</p>
       </div>
     </div>
 
