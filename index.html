@@ -203,7 +203,8 @@
   }
 
   /* ---------- Services ---------- */
-  .svc-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--line);}
+  .svc-list{list-style:none; margin:0; padding:0;}
+  .svc-list li:first-child a{border-top:1px solid var(--line);}
   .svc-list a{
     display:flex; align-items:center; justify-content:space-between; gap:16px;
     padding:18px 4px;
@@ -220,6 +221,7 @@
   .svc-list a:hover .go svg{transform:translateX(4px);}
   @media (min-width:760px){
     .svc-list{display:grid; grid-template-columns:1fr 1fr; column-gap:48px;}
+    .svc-list li:nth-child(2) a{border-top:1px solid var(--line);}
   }
 
   /* ---------- Photo strip ---------- */
@@ -404,19 +406,18 @@
     position:fixed; left:0; right:0; bottom:0; z-index:150;
     display:grid; grid-template-columns:1fr 1fr 1.3fr; gap:8px;
     padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-    background:var(--white);
-    border-top:1px solid var(--line);
-    box-shadow:0 -4px 16px rgba(0,0,0,.06);
+    background:var(--navy-deep);
+    box-shadow:0 -4px 20px rgba(0,0,0,.18);
   }
   .action-bar a{
     display:flex; align-items:center; justify-content:center; gap:7px;
     min-height:48px; border-radius:999px;
     text-decoration:none; font-weight:600; font-size:.95rem;
-    border:1.5px solid var(--line); color:var(--navy);
+    border:1.5px solid rgba(255,255,255,.35); color:var(--white);
   }
   .action-bar a svg{width:19px; height:19px;}
-  .action-bar .wa svg{color:#1DA851;}
-  .action-bar .bk{background:var(--navy); border-color:var(--navy); color:var(--white);}
+  .action-bar .wa svg{color:#25D366;}
+  .action-bar .bk{background:var(--white); border-color:var(--white); color:var(--navy);}
   body{padding-bottom:76px;}
   .wa-float{display:none;}
   @media (min-width:760px){
